@@ -1,0 +1,15 @@
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\bin\Debug\net7.0\ExamFinal.exe
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\bin\Debug\net7.0\ExamFinal.deps.json
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\bin\Debug\net7.0\ExamFinal.runtimeconfig.json
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\bin\Debug\net7.0\ExamFinal.dll
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\bin\Debug\net7.0\ExamFinal.pdb
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ExamFinal.csproj.AssemblyReference.cache
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ExamFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ExamFinal.AssemblyInfoInputs.cache
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ExamFinal.AssemblyInfo.cs
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ExamFinal.csproj.CoreCompileInputs.cache
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ExamFinal.dll
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\refint\ExamFinal.dll
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ExamFinal.pdb
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ExamFinal.genruntimeconfig.cache
+C:\Users\sfatt\OneDrive\Desktop\java class homework\semister4\c#\Firstcsharp\ExamFinal\ExamFinal\obj\Debug\net7.0\ref\ExamFinal.dll
