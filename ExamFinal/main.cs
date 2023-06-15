@@ -132,7 +132,60 @@ class main
         {
             Console.WriteLine("Query Syntax price: " + title);
         }
+        
+        
+        
+        
+        //oopin c#
+        //class the refrance of this object pass a round in memory
+        PersonClass person = new PersonClass("soheil", 20);
+        PersonClass person2 = new PersonClass("lisha", 30);
+        Console.WriteLine(person.GetInfo() );
+        Console.WriteLine(person2.GetInfo() );
+        PersonClass.Walking();
+        Console.WriteLine(PersonClass.NumberofPeople);
+        //object initializer
+        /*PersonClass person2 = new PersonClass
+        {
+            Name = "soheil",
+        };
+        Console.WriteLine(person2.ToString());*/
+        
+        //inheritance
+        Ufo ufo1 = new Ufo("z489UFO", 40, "Mars");
+        Console.WriteLine(ufo1.GetInfo());
+        Ufo.Walking();
+        Console.WriteLine(Ufo.NumberofPeople);
+        
+        
+        
+        //struct the copy of this object pass a round in memory
+        PersonStructs person3 = new PersonStructs("soheilstruct", 80);
+        Console.WriteLine(person3.ToString());
+        
+        
+        PersonRecord person4 = new PersonRecord("soheilrecord", 89);
+        Console.WriteLine(person4.ToString());
+        
+        //var vs dynamic
+        //var is static type and dynamic is dynamic type
+        //var is compile time and dynamic is runtime
+        var myVar = 10;
+        Console.WriteLine(myVar);
+        dynamic myDynamic = "soheil";
+        Console.WriteLine(myDynamic);
+
+
+
+
+
+
+
+
     }
 }
+
+
+
 
 
