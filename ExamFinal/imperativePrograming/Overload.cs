@@ -55,9 +55,11 @@
         }
         //pathern matching
         //type pattern is keyword followed by the type to check (double in this case) and the variable name (i in this case).
+        //is operator evalute the type of the object
         public static void TypePattern(object o)
         {
-            if (o is double )
+            //use where to check the type of the object
+            if (o is > 0.0 and not double.NaN)
             {
                 Console.WriteLine($"{o} is an double!");
             }
@@ -71,10 +73,11 @@
         {
             switch (o)
             {
-                case double :
+                case double when (o is > 0.0 and not double.NaN):
+                    
                     Console.WriteLine($"{o} is an double!");
                     break;
-                case string :
+                case string when (o is not null):
                     Console.WriteLine($"{o} is an string!");
                     break;
                 default:
@@ -84,9 +87,10 @@
         }
         //property pattern is keyword followed by the type to check (Overload in this case) and the property pattern { cm: 0, inch: 0 }. The property pattern specifies the desired values for the properties cm and inch, which should both be 0.
         //is keyword followed by the type to check (Overload in this case) and the property pattern { cm: 0, inch: 0 }. The property pattern specifies the desired values for the properties cm and inch, which should both be 0.
+        //property pattern check the value of the object
         public static void PropertyPattern(object o)
         {
-            if (o is Overload { cm: 10, inch: 10})
+            if (o is Overload { cm: 10, inch: 10} )
             {
                 Console.WriteLine($"{o} is an Overload with cm and inch 10!");
             }
