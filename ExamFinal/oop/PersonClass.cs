@@ -1,5 +1,5 @@
 ﻿namespace ExamFinal;
-
+//refrence type is a class
 public class PersonClass
 //seald class can not be in haritantas a parents class but  can be a child class
 //sealed public class PersonClass
@@ -12,6 +12,9 @@ public class PersonClass
     public int Age { get; set; }
 //STATIC IS BELONG TO THE CLASS NOT THE OBJECTAND no object has onership of it
     public static int NumberofPeople;
+    
+    
+    
     // constructor
     public PersonClass(string name, int age)
     {
@@ -19,8 +22,16 @@ public class PersonClass
         Age = age;
         NumberofPeople++;
     }
-
-    /*public string name;
+    //empty constructor
+    public PersonClass()
+    {
+        NumberofPeople++;
+    }
+    
+    
+    //this is a use geter and setter with out auto impliment property
+/*
+    public string name;
     public int age;
 
     public string Name
@@ -49,6 +60,11 @@ public class PersonClass
 
     // tostring method
     public virtual string GetInfo()
+    {
+        return $"This PersonClass name is {Name} and age is {Age}";
+    }
+    //tostring method
+    public override string ToString()
     {
         return $"This PersonClass name is {Name} and age is {Age}";
     }

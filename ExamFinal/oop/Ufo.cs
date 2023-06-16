@@ -13,7 +13,6 @@ public class Ufo:PersonClass
     {
         return $"This Ufo name is {Name} and age is {Age} and planet is {Planet}";
     }
-    
-    
-    
+
+
 }

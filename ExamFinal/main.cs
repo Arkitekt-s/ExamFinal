@@ -1,23 +1,24 @@
-﻿using ExamFinal;
+﻿using System.Net.Sockets;
+using ExamFinal;
 
 class main
 {
     static void Main(string[] args)
     {
         
-        var myBooks = new List<Books>();
+        var myBooks = new List<BookLinq>();
         {
-            myBooks.Add(new Books { Title = "The AHobbit", Author = "J.R.R. Tolkien", Price = 10 });
-            myBooks.Add(new Books { Title = "The BFellowship of the Ring", Author = "J.R.R. Tolkien", Price = 20 });
-            myBooks.Add(new Books { Title = "The CTwo Towers", Author = "J", Price = 30 });
-            myBooks.Add(new Books { Title = "The DReturn of the King", Author = "R Tolkien", Price = 40 });
+            myBooks.Add(new BookLinq { Title = "The AHobbit", Author = "J.R.R. Tolkien", Price = 10 });
+            myBooks.Add(new BookLinq { Title = "The BFellowship of the Ring", Author = "J.R.R. Tolkien", Price = 20 });
+            myBooks.Add(new BookLinq { Title = "The CTwo Towers", Author = "J", Price = 30 });
+            myBooks.Add(new BookLinq { Title = "The DReturn of the King", Author = "R Tolkien", Price = 40 });
         }
-         var myBooks2 = new List<Books>();
+         var myBooks2 = new List<BookLinq>();
          {
-             myBooks2.Add(new Books { Title = "a", Author = "soheil", Price = 1 });
-             myBooks2.Add(new Books { Title = "jbook", Author = "J", Price = 2 });
-             myBooks2.Add(new Books { Title = "jboo2", Author = "J", Price = 3 });
-             myBooks2.Add(new Books { Title = "d", Author = "merry", Price = 4 });
+             myBooks2.Add(new BookLinq { Title = "a", Author = "soheil", Price = 1 });
+             myBooks2.Add(new BookLinq { Title = "jbook", Author = "J", Price = 2 });
+             myBooks2.Add(new BookLinq { Title = "jboo2", Author = "J", Price = 3 });
+             myBooks2.Add(new BookLinq { Title = "d", Author = "merry", Price = 4 });
          }
 
 
@@ -76,6 +77,13 @@ class main
         //count the collection
         var myNewBooks5 = myBooks.Count(x => x.Price > 10);
         Console.WriteLine("count the collection using count: " + myNewBooks5);
+        //first
+        var myNewBooks10 = myBooks.First(x => x.Price > 35);
+        Console.WriteLine("first the collection using first: " + myNewBooks10);
+        //last
+        var myNewBooks11 = myBooks.Last(x => x.Price > 35);
+        Console.WriteLine("last the collection using last: " + myNewBooks11);
+        
         //sum the collection
         var myNewBooks6 = myBooks.Sum(x => x.Price);
         Console.WriteLine("sum the collection using sum: " + myNewBooks6);
@@ -144,12 +152,12 @@ class main
         Console.WriteLine(person2.GetInfo() );
         PersonClass.Walking();
         Console.WriteLine(PersonClass.NumberofPeople);
-        //object initializer
-        /*PersonClass person2 = new PersonClass
+        //object initializer we dont need constructorif i dont have any constructor
+        PersonClass person7 = new PersonClass
         {
-            Name = "soheil",
+            Name = "emty name soheil",
         };
-        Console.WriteLine(person2.ToString());*/
+        Console.WriteLine(person7.Name);
         
         //inheritance
         Ufo ufo1 = new Ufo("z489UFO", 40, "Mars");
@@ -174,6 +182,50 @@ class main
         Console.WriteLine(myVar);
         dynamic myDynamic = "soheil";
         Console.WriteLine(myDynamic);
+        
+        
+        
+        
+        
+        //type conversion
+
+
+
+
+        //refrance tyoe 
+        Typesystem typesystem = new Typesystem();
+        typesystem.ExampleMethod();
+        //value type
+        typesystem.ExampleStruct();
+        //overload
+        Overload l1 = new Overload(300,12.1212);
+        Overload l2 = new Overload(10,13.131313);
+        Overload l4 = new Overload(10, 10);
+        Overload l3 = l1 - l2;
+        //show to decimal
+        Console.WriteLine($"{l1.inch:F2} inch {l1.inch,20}");
+        //@The newline character is included directly within the string
+        //@ direct copy the string and dont need to escape
+        var myString = @"\this is my string$$";
+        Console.WriteLine(myString);
+        var myString2 = "\\this is my string$$";
+        Console.WriteLine(myString2);
+        //row string which is used for html and xml and json and sql this is help to write string
+        var Xml="""
+            <?xml version=""1.0"" encoding=""utf-8""?>
+            <title>Programming C#</title>
+            <author>Soheil</author>
+            <price>10</price>
+            """;
+        Console.WriteLine(Xml);
+        Console.WriteLine(l1.ConvertToCm());
+        Console.WriteLine(l2.ConvertToCm());
+        Console.WriteLine(l3.ConvertToCm());
+        Overload.TypePattern("soheil");
+        Overload.SwitchPattern(null);
+        Overload.PropertyPattern(l4);
+        
+
 
 
 

@@ -1,6 +1,6 @@
 ﻿namespace ExamFinal;
 
-public class Books
+public class BookLinq
 {
     public string Title { get; set; }
     public string Author { get; set; }
