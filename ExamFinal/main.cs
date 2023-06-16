@@ -222,7 +222,7 @@ class main
         Console.WriteLine(l2.ConvertToCm());
         Console.WriteLine(l3.ConvertToCm());
         Overload.TypePattern("soheil");
-        Overload.SwitchPattern(null);
+        Overload.SwitchPattern(10.1);
         Overload.PropertyPattern(l4);
         
 

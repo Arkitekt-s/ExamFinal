@@ -37,6 +37,12 @@
             this.cm = cm;
             this.inch = inch;
         }
+
+        public override string ToString()
+        {
+           return $" cm = {cm} , inch = {inch}";
+        }
+
         public string ConvertToCm()
         {
             //STRING INTERPOLATION
@@ -51,9 +57,9 @@
         //type pattern is keyword followed by the type to check (double in this case) and the variable name (i in this case).
         public static void TypePattern(object o)
         {
-            if (o is double i)
+            if (o is double )
             {
-                Console.WriteLine($"{i} is an double!");
+                Console.WriteLine($"{o} is an double!");
             }
             else
             {
@@ -65,11 +71,11 @@
         {
             switch (o)
             {
-                case double i:
-                    Console.WriteLine($"{i} is an double!");
+                case double :
+                    Console.WriteLine($"{o} is an double!");
                     break;
-                case string s:
-                    Console.WriteLine($"{s} is an string!");
+                case string :
+                    Console.WriteLine($"{o} is an string!");
                     break;
                 default:
                     Console.WriteLine($"{o} is not an double or string!");
