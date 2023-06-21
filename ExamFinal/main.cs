@@ -1,6 +1,7 @@
 ﻿using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using ExamFinal;
+using ExamFinal.Abstract;
 using ExamFinal.ArrysAndCollections;
 using Array = System.Array;
 
@@ -393,7 +394,9 @@ class main
             malechild.MaleChildMethod();
             
             parent= malechild; //covariant where child is a parent
-            //This line demonstrates covariance, where you assign an instance of MaleChild (cm) to a variable of type Parent (p). Covariance is allowed because MaleChild is derived from Parent, and assigning a derived type object to a base type reference is permissible.
+            //This line demonstrates covariance, where you assign an instance of MaleChild (cm) to a variable of type Parent (p).
+            //Covariance is allowed because MaleChild is derived from Parent, and assigning a derived type object to a
+            //base type reference is permissible.
             
            //malechild=parent; //contravariant where parent is a child its not allowed
             MaleChild[] objectMaleChildrenArray={new MaleChild("jack","usa",12),new MaleChild("alex","usa",22)};
@@ -407,6 +410,9 @@ class main
             // convartion, but not safe
             //safe approach IEnumerable<T> provides only read-only access
             IEnumerable<Parent> objectParentArray = objectMaleChildrenArray;
+            
+            
+            
              
             //runtime error give to me 
             //objectParentArray[0] = new FemailChild("anja","uk",33);
@@ -414,6 +420,55 @@ class main
             //read as a list
             //objectParentArray.ToList().ForEach(s=>Console.WriteLine(s));
             
+            
+            
+            
+            // Abstract
+            
+            Car car = new Car();
+            Bicycle bicycle = new Bicycle();
+            Boat boat = new Boat();
+            //Vehicle vehicle = new Vehicle();
+            //bike is run method 
+            bicycle.luxery();
+            bicycle.luxery2();
+            bicycle.delegateBike1("soheil ride bike");
+            bicycle.delegateBike2("soheil ride bike");
+            bicycle.delegateBike3("soheil ride bike");
+            bicycle.delegateBike4(30);
+            bicycle.delegateBike4.Invoke(80);
+            //add deligate together 
+            
+            static void ProcessCompliet1(object sender, EventArgs e)
+            {
+                Console.WriteLine("Process compliet");
+            }
+
+            // Subscribe ProcessCompliet1 method to the eventHandler event
+            bicycle.eventHandler += ProcessCompliet1;
+            // Call the StartProcess method of the bicycle object 
+            bicycle.StartProcess();
+            
+            //[] for bike 
+            List<Bicycle> bicycleList = new List<Bicycle>
+            {
+                new Bicycle(2,20),
+                new Bicycle(2,40),
+                new Bicycle(2,60),
+            };
+            //sort by speed
+            var sortedBicycleList = bicycleList.OrderBy(b=>b.maxSpeed);
+            //print the list
+            foreach (var item in sortedBicycleList)
+            {
+                Console.WriteLine(item.maxSpeed);
+            }
+           
+            
+            
+
+
+
 
 
 
