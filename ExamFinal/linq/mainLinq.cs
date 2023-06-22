@@ -1,8 +1,11 @@
-﻿/*namespace ExamFinal;
+﻿namespace ExamFinal;
 
 public class mainLinq
 {
-    public static void Main(string[] args)
+    public static void mainLinq1()
+    
+    
+
     {
         var myBooks = new List<BookLinq>();
         {
@@ -139,4 +142,4 @@ public class mainLinq
         }
 
     }
-}*/
+}
