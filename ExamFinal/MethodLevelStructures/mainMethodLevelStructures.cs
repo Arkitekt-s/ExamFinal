@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace ExamFinal.MethodLevelStructures;
 
@@ -6,14 +7,21 @@ public class mainMethodLevelStructures
 {
     public static void mainMethodLevelStructures1()
     {
-        Console.WriteLine("***************************************out,ref,in  ***********************************");
+       
+        
+        
+        
+        
+        
+        Console.WriteLine("\n***************************************out,ref,in  ***********************************");
         //out and ref help to give a varaible by reference to a method
         //in this case exact value of the number pass and coppy to the method
-        int number = 10;
+        //in is a read only variable and can not be changed in the method
+        int number = 200;
         addNumber(number);
-        static void addNumber(int number)
+        void addNumber(in int number1)
         {
-            number = number + 10;
+            number = number1 + 10;
             Console.WriteLine("Number is(VALUE): " + number);
         }
         
@@ -21,14 +29,14 @@ public class mainMethodLevelStructures
         //the caller is responsible for providing the arguments or parameters, and the callee is responsible for
         //performing the desired operations using those arguments.
         //REFRENCE ITS SEND DATA TO caler to the calee and the calee can change the value of the variable
-        //allocated in stack and heap
+        //allocated in stack and heap12
         int numberR = 20;
         addNumberR(ref numberR);
 
-        static void addNumberR(ref int numberR)
+        static void addNumberR(ref int number)
         {
-            numberR = numberR + 10;
-            Console.WriteLine("Number is(REFRENCE two-way communication): " + numberR);
+            number= number + 10;
+            Console.WriteLine("Number is(REFRENCE two-way communication): " + number);
         }
         //OUT is also the refrance type but the deference is that we dont need to initialize the variable
         //out is one way only from calee to the caller
@@ -41,6 +49,24 @@ public class mainMethodLevelStructures
             numberO = numberO + 10;
             Console.WriteLine("Number is(OUT one-way communication): " + numberO);
         }
+        
+        Console.WriteLine("\n***************************************defult value and optional paramiter  ***********************************");
+        
+        //[optional] is a keyword that we can use to make a paramiter optional
+         void MyMethod(int x, int y = 10)
+        {
+            Console.WriteLine("x is: " + x);
+            Console.WriteLine("y is: " + y);
+        }
+
+         void MyMethod2(int xx, int yy , [Optional] String name)
+         {
+             Console.WriteLine("xx is: " + xx);
+             Console.WriteLine("yy is: " + yy);
+             Console.WriteLine("name is: " + name);
+         }
+         
+             
 
 
         
@@ -48,7 +74,7 @@ public class mainMethodLevelStructures
         
         
         
-        Console.WriteLine("***************************************THIS IS TUPLES***********************************");
+        Console.WriteLine("\n***************************************THIS IS TUPLES***********************************");
 
         //a decounstructer is a method that takes a tuple and breaks it into its parts and assign them to variables 
         (string message, bool isValid) = ValidateAddress("123 stran");

@@ -2,7 +2,12 @@
 
 public class Boat:Vehicle
 {
-    public int wheels=0;
-    public int maxSpeed = 100;
+    public int wheels;
+    public int maxSpeed;
+    public Boat(int wheels, int maxSpeed,int speed):base(speed)
+    {
+        this.wheels = wheels;
+        this.maxSpeed = maxSpeed;
+    }
     
 }

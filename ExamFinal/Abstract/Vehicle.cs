@@ -3,7 +3,13 @@
 //its a missing component or incomplete implementation and give littele bit of security
 abstract public class Vehicle
 {
-    public int speed=0;
+    public int speed;
+
+    protected Vehicle(int speed)
+    {
+        this.speed = speed;
+    }
+
     public void Go()
     {
         Console.WriteLine("this vehicle is moving");

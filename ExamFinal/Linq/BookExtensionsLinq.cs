@@ -1,5 +1,5 @@
 ﻿namespace ExamFinal;
-//this a linq extention method
+//this a linq extention method should be in a static class and static method
 
 public static class BookExtensionsLinq
 {

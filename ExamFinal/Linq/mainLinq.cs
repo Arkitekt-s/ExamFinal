@@ -3,10 +3,13 @@
 public class mainLinq
 {
     public static void mainLinq1()
-    
-    
 
     {
+        
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine("\n" + new string('*', 10) + "Linq Methods" + new string('*', 10));
+        Console.ResetColor();
+        
         var myBooks = new List<BookLinq>();
         {
             myBooks.Add(new BookLinq { Title = "The AHobbit", Author = "J.R.R. Tolkien", Price = 10 });
@@ -21,31 +24,14 @@ public class mainLinq
             myBooks2.Add(new BookLinq { Title = "jboo2", Author = "J", Price = 3 });
             myBooks2.Add(new BookLinq { Title = "d", Author = "merry", Price = 4 });
         }
-
-
-        //Use the extension method to filter books by author
-        var FilteredBooks = myBooks.FilterByAuthor("J");
-        foreach (var book in FilteredBooks)
+        //without using linq
+        foreach (var book in myBooks)
         {
-            Console.WriteLine("FilterByAuthorExtension: " + book.Title);
-        }
-
-        // LINQ (Language-Integrated Query) 
-        //grope by author of to list of mybooks and mybooks2
-        var mergedBooks = myBooks.Concat(myBooks2);
-        var myNewgroup = mergedBooks.GroupBy(x => x.Author)
-            .ToDictionary(x => x.Key, x => x.ToList());
-        foreach (var Books in myNewgroup)
-        {
-            Console.WriteLine("grope by author: " + Books.Key);
-            foreach (var book in Books.Value)
+            if (book.Author == "J.R.R. Tolkien")
             {
                 Console.WriteLine(book.Title);
             }
         }
-
-
-
 
         //Where: Filters a sequence of elements specifying a condition
         var myNewBooks1 = myBooks.Where(x => x.Price == 10);
@@ -96,10 +82,7 @@ public class mainLinq
         //min the collection
         var myNewBooks9 = myBooks.Min(x => x.Price);
         Console.WriteLine("min the collection using min: " + myNewBooks9);
-
-
-
-
+        
         //use linq sort list and make it easy and fast
         //ThenBy is used to sort the collection by another property
         var myNewBooks = myBooks.Where(x => x.Author == "J.R.R. Tolkien")
@@ -109,18 +92,23 @@ public class mainLinq
         {
             Console.WriteLine(Book);
         }
-
-        //without using linq
-
-        foreach (var book in myBooks)
+        // LINQ (Language-Integrated Query) 
+        //grope by author of to list of mybooks and mybooks2
+        var mergedBooks = myBooks.Concat(myBooks2);
+        var myNewgroup = mergedBooks.GroupBy(x => x.Author)
+            .ToDictionary(x => x.Key, x => x.ToList());
+        foreach (var Books in myNewgroup)
         {
-            if (book.Author == "J.R.R. Tolkien")
+            Console.WriteLine("grope by author: " + Books.Key);
+            foreach (var book in Books.Value)
             {
-                Console.WriteLine(book.Title);
+                Console.WriteLine("grope by Title: " + book.Title);
             }
         }
-
-
+       
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine("\n" + new string('*', 10) + "Linq Query syntax" + new string('*', 10));
+        Console.ResetColor();
         //Query Syntax:
         var query = from book in myBooks
             where book.Author == "J.R.R. Tolkien"
@@ -140,6 +128,26 @@ public class mainLinq
         {
             Console.WriteLine("Query Syntax price: " + title);
         }
-
+        //with color
+        
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine("\n" + new string('*', 10) + "Custom extension method" + new string('*', 10));
+        Console.ResetColor();
+        //Use the extension method to filter books by author
+        var FilteredBooks = BookExtensionsLinq.FilterByAuthor(myBooks,"J");
+        foreach (var book in FilteredBooks)
+        {
+            //give a list
+            Console.WriteLine("Custom extension(FilterByAuthor) method: " + book.Title);
+        }
+        
     }
 }
+            
+    
+
+
+
+
+
+    
