@@ -10,10 +10,13 @@ namespace ExamFinal.ArrysAndCollections
         
         // To enable client code to validate input 
         // when accessing your indexer.
+        
+
         public int Length => temps.Length;
         
         // Indexer declaration.
         // If index is out of range, the temps array will throw the exception.
+        
         public float this[int index]
         {
             get => temps[index];

@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace ExamFinal.MethodLevelStructures;
@@ -7,13 +9,14 @@ public class mainMethodLevelStructures
 {
     public static void mainMethodLevelStructures1()
     {
-       
+
+
+
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("\n" + new string('*', 10) + "out,ref,in" + new string('*', 10));
+        Console.ResetColor();
         
         
-        
-        
-        
-        Console.WriteLine("\n***************************************out,ref,in  ***********************************");
         //out and ref help to give a varaible by reference to a method
         //in this case exact value of the number pass and coppy to the method
         //in is a read only variable and can not be changed in the method
@@ -49,8 +52,10 @@ public class mainMethodLevelStructures
             numberO = numberO + 10;
             Console.WriteLine("Number is(OUT one-way communication): " + numberO);
         }
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("\n" + new string('*', 10) + "Defult value and optional paramiter " + new string('*', 10));
+        Console.ResetColor();
         
-        Console.WriteLine("\n***************************************defult value and optional paramiter  ***********************************");
         
         //[optional] is a keyword that we can use to make a paramiter optional
          void MyMethod(int x, int y = 10)
@@ -73,8 +78,10 @@ public class mainMethodLevelStructures
         
         
         
-        
-        Console.WriteLine("\n***************************************THIS IS TUPLES***********************************");
+         Console.ForegroundColor = ConsoleColor.DarkRed;
+         Console.WriteLine("\n" + new string('*', 10) + "THIS IS TUPLES" + new string('*', 10));
+         Console.ResetColor();
+       
 
         //a decounstructer is a method that takes a tuple and breaks it into its parts and assign them to variables 
         (string message, bool isValid) = ValidateAddress("123 stran");
@@ -105,9 +112,29 @@ public class mainMethodLevelStructures
             }
 
         }
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("\n" + new string('*', 10) + "System.Attribute" + new string('*', 10));
+        Console.ResetColor();
+        
+        var assembly = Assembly.GetExecutingAssembly().GetTypes()
+            . Where(t => t.GetCustomAttributes<AttributeExample.SampleAttribute>().Any()).ToList();
+        Console.WriteLine("NAME OF THE ASSEMBLY: " + assembly[0].Name);
+        
+        AttributeExample.SampleAttribute sampleAttribute1 = 
+            new AttributeExample.SampleAttribute(1, 80, "M", "Student@gmail.com");
+        
+        var context = new ValidationContext(sampleAttribute1);
+        var results = new List<ValidationResult>();
+        bool ok = Validator.TryValidateObject(sampleAttribute1, context, results, true);
+        Console.WriteLine("Dave validion is : " + ok);
+        
+        
+        
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("\n" + new string('*', 10) + "THIS IS Exception Handling" + new string('*', 10));
+        Console.ResetColor();
 
-        Console.WriteLine(
-            "***************************************THIS IS Exception Handling***********************************");
+        
         int x;
         int y;
         double result;
@@ -151,11 +178,8 @@ public class mainMethodLevelStructures
 // is used to wait for the user to press a key before the program exits.
         Console.ReadKey();
         
-        Console.WriteLine(
-            "***************************************System.Attribute***********************************");
         
-       
-
+        
     }
     
 }

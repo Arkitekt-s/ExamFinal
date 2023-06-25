@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using ExamFinal;
 using ExamFinal.Abstract;
+using ExamFinal.Advance;
 using ExamFinal.ArrysAndCollections;
 using ExamFinal.MethodLevelStructures;
 using Array = System.Array;
@@ -15,8 +16,9 @@ class main
         mainAbstract.Abstractmain1();
         mainArrys.mainArry1();
         mainImprative.mainImprative1();
-        mainMethodLevelStructures.mainMethodLevelStructures1();
         
+        mainMethodLevelStructures.mainMethodLevelStructures1();
+        mainAdvance.mainAdvance1();
     }
 }
 

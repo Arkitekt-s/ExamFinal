@@ -32,34 +32,6 @@ public class Typesystem
     
     
 
-
-    //refrance type
-    public void ExampleMethod()
-    {
-        RefrenceType First1 = new RefrenceType(10);
-        RefrenceType Second2 = First1;
-        Second2.x = 20;
-        Console.WriteLine("X NUMBER in class refrence IS "+ First1.x);
-        //value type can not be change 
-        b=a;
-        Console.WriteLine("A NUMBER IS "+ a);
-        
-    }
-    public void ExampleStruct()
-    {
-        StructValue First1 = new StructValue(10);
-        StructValue Second2 = First1;
-        Second2.x = 20;
-        Console.WriteLine("X NUMBER in struct value is "+ First1.x);
-        //value type can not be change 
-        b=a;
-        Console.WriteLine("A NUMBER IS "+ a);
-        
-    }
-    //add a and b
-    public void Add()
-    {
-        Console.WriteLine("c = "+ (a+b));
-    }
+    
 }
 

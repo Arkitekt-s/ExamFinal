@@ -38,9 +38,7 @@ public class mainAbstract
         car.eventHandler += ProcessCompliet1;
         // Call the StartProcess method of the bicycle object 
         car.StartProcess();
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("\n" + new string('*', 10) + "Lambda" + new string('*', 10));
-        Console.ResetColor();
+        
         //[] for bike 
         List<Bicycle> bicycleList = new List<Bicycle>
         {

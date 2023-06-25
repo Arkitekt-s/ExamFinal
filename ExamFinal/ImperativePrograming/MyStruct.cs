@@ -1,10 +1,10 @@
 ﻿namespace ExamFinal;
-
-public class RefrenceType
+//struct is a value type
+public struct MyStruct
 {
     public int x{get ; set;}
 
-    public RefrenceType(int value)
+    public MyStruct(int value)
     {
         x = value;
     }
