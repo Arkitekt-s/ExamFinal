@@ -92,6 +92,54 @@ namespace ExamFinal.Advance
                 Console.WriteLine("calculate3Async");
                 // Do something
             }
+            
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\n" + new string('*', 10) + "Functional Programing" + new string('*', 10));
+            Console.ResetColor();
+            
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\n" + new string('*', 10) + "Builder Design Pattern" + new string('*', 10));
+            Console.ResetColor();
+            
+            var productBuilder = new ProductBuilder();
+            Product product3=productBuilder.setName("Product3").setPrice(300).Build();
+            Console.WriteLine($"Product3:{product3.Name} {product3.Price}");
+            
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\n" + new string('*', 10) + "Extension methods" + new string('*', 10));
+            Console.ResetColor();
+            var ShoppingCart = new ShoppingCart();
+            ShoppingCart.Products.Add(new Product { Name = "Product1", Price = 100 });
+            ShoppingCart.Products.Add(new Product { Name = "Product2", Price = 200 });
+            //add product 3 in the shopping cart    
+            ShoppingCart.Products.Add(product3);
+            //we can use it as a regular method as well
+            //use extention method in order to dont touch the original api 
+            Console.WriteLine($"Total in card:{ShoppingCart.CalculateTotalPrice()}");
+            ShoppingCartExtensions.CalculateTotalPrice(ShoppingCart);
+            Console.WriteLine(ShoppingCartExtensions.CalculateTotalPrice(ShoppingCart));
+            
+            
+            
+            
+            
+           
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 }
