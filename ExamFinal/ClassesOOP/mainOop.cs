@@ -36,7 +36,7 @@ public class mainOop
         Console.ResetColor();
         
         PersonRecord person4 = new PersonRecord("soheilrecord", 89);
-        Console.WriteLine(person4.ToString());
+        Console.WriteLine($"Build in tostring on record: {person4}");
         
         
         

@@ -37,6 +37,7 @@ namespace ExamFinal.Advance
                     calculate2(result1);
                 });
                 
+                
                 calculate3();
             }
 
@@ -68,9 +69,14 @@ namespace ExamFinal.Advance
             
             static async Task calculateAsync()
             {
+                Task task3 = Task.Run(() =>
+                {
+                    calculate3A();
+                });
                 var result1A = await calculate1Async();
                 calculate2A(result1A);
-                calculate3A();
+
+                await task3;
             }
 
             static async Task<int> calculate1Async()
@@ -117,15 +123,36 @@ namespace ExamFinal.Advance
             //use extention method in order to dont touch the original api 
             Console.WriteLine($"Total in card:{ShoppingCart.CalculateTotalPrice()}");
             ShoppingCartExtensions.CalculateTotalPrice(ShoppingCart);
-            Console.WriteLine(ShoppingCartExtensions.CalculateTotalPrice(ShoppingCart));
+            Console.WriteLine($"Different way to access to Total Price:{ShoppingCartExtensions.CalculateTotalPrice(ShoppingCart)}");
             
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\n" + new string('*', 10) + "Records" + new string('*', 10));
+            Console.ResetColor();
             
+            AdvanceRECORD advanceRecord=new AdvanceRECORD{Name = "AdvanceRECORDStruct", Age = 30};
+            AdvanceRECORD advanceRecord2=new AdvanceRECORD{Name = "AdvanceRECORDStruct", Age = 30};
+            Console.WriteLine(advanceRecord);
+            Console.WriteLine(advanceRecord2);
+            Console.WriteLine($"Record can check the property and if its true return true:{advanceRecord==advanceRecord2}");
             
+            Product product1=new Product{Name = "Product1", Price = 100};
+            Product product2=new Product{Name = "Product1", Price = 100};
+            Console.WriteLine($"Two class even if they have the same property are not equal:{product1==product2}");
+
+            var advanceRecordClassButDifferent = advanceRecord with {Age = 40};
             
+            Console.WriteLine(advanceRecordClassButDifferent);
+            Console.WriteLine(advanceRecord);
+            Console.WriteLine(advanceRecord2);
+            Console.WriteLine($"Record can check the property and if its true return true:{advanceRecord==advanceRecordClassButDifferent}");
             
-           
-            
-            
+
+
+
+
+
+
+
 
 
 

@@ -5,5 +5,6 @@
 // holding data without behavior.
 // properties are read-only
 // immutable data
+//has a build in toString method
 public record PersonRecord(string Name, int Age);
 
