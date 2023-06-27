@@ -2,8 +2,13 @@
 
 public class mainAbstract
 {
+    public delegate void SimpleDelegate(string param);
+    public delegate void SimpleDelegate2(int param);
     public static void Abstractmain1()
     {
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("\n" + new string('*', 50) + "Abstraction" + new string('*', 50));
+        Console.ResetColor();
         // Abstract
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("\n" + new string('*', 10) + "Interface" + new string('*', 10));
@@ -14,12 +19,19 @@ public class mainAbstract
         Boat boat = new Boat(0,100,50);
         //Vehicle vehicle = new Vehicle();
         //bike is run method 
-        bicycle.luxery();
-        bicycle.luxery2();
+        Iluxery bicycleAsIluxery = bicycle;
+        bicycleAsIluxery.luxery(" soheil ride nice bike");
+        
+        Iluxery2 bicycleAsIluxery2 = bicycle;
+        bicycleAsIluxery2.luxery2(" soheil ride bike");
+       
+        
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("\n" + new string('*', 10) + "Deligates" + new string('*', 10));
         Console.ResetColor();
-        bicycle.delegateBike1("soheil ride bike");
+        bicycle.delegateBike1=bicycle.ConsolePrint;
+        bicycle.delegateBike1("this is delegate bike1");
+        
         bicycle.delegateBike2("soheil ride bike");
         bicycle.delegateBike3("soheil ride bike");
         bicycle.delegateBike4(30);
@@ -29,16 +41,22 @@ public class mainAbstract
         Console.WriteLine("\n" + new string('*', 10) + "Event handling" + new string('*', 10));
         Console.ResetColor();
             
-        static void ProcessCompliet1(object sender, EventArgs e)
+        static void ProcessCompleiet(object? sender, EventArgs e)
         {
             Console.WriteLine("Process compliet");
         }
 
         // Subscribe ProcessCompliet1 method to the eventHandler event
-        car.eventHandler += ProcessCompliet1;
-        // Call the StartProcess method of the bicycle object 
+        car.eventHandler += ProcessCompleiet;
+        // Call the StartProcess method of the car object 
         car.StartProcess();
         
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("\n" + new string('*', 10) + "Lambdas" + new string('*', 10));
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("\n" + new string('*', 10) + "Expression Lambdas" + new string('*', 10));
+        Console.ResetColor();
         //[] for bike 
         List<Bicycle> bicycleList = new List<Bicycle>
         {
@@ -53,6 +71,22 @@ public class mainAbstract
         {
             Console.WriteLine(item.maxSpeed);
         }
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("\n" + new string('*', 10) + "Statement Lambdas" + new string('*', 10));
+        Console.ResetColor();
+        
+        var filteredBicycleList = bicycleList.Where(b =>
+        {
+            return b.maxSpeed > 30;
+        });
+
+        // print the filtered list
+        foreach (var item in filteredBicycleList)
+        {
+            Console.WriteLine(item.maxSpeed);
+        }
+         
+        //print the list
         
     }
 }

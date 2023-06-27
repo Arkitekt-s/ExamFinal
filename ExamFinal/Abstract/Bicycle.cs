@@ -21,24 +21,34 @@ public class Bicycle:Vehicle,Iluxery,Iluxery2
 
     
     
-    public void luxery()
+    void Iluxery.luxery(string message)
     {
-        Console.WriteLine("Luxery Bike1");
+
+        Console.WriteLine("this is luxery method from interface"+message);
+
     }
-    public void luxery2()
+    void Iluxery2.luxery2(string message)
     {
-        Console.WriteLine("Luxery Bike2");
+
+        Console.WriteLine("this is luxery2 method from interface"+message);
+
     }
+    public void ConsolePrint(string text)
+    {
+        Console.WriteLine("this is console print method"+text);
+    }
+    
     //deligate is a part of functional programming which is used to pass a method as a parameter
-    public Iluxery.SimpleDelegate delegateBike1 = (string param) => Console.WriteLine(param);
+    public mainAbstract.SimpleDelegate delegateBike1;
+    
     
     //change lowcase to lowercase
-    public Iluxery.SimpleDelegate delegateBike2 = (string param) => Console.WriteLine(param.ToLower());
+    public mainAbstract.SimpleDelegate delegateBike2 = (string param) => Console.WriteLine(param.ToLower());
     
     //change lowcase to uppercase 
-    public Iluxery.SimpleDelegate delegateBike3 = (string param) => Console.WriteLine(param.ToUpper());
+    public mainAbstract.SimpleDelegate delegateBike3 = (string param) => Console.WriteLine(param.ToUpper());
     // speed limit 30km/h
-    public Iluxery.SimpleDelegate2 delegateBike4 = (int param) => Console.WriteLine(param>30?"Speed limit exceeded":"Speed limit not exceeded");
+    public mainAbstract.SimpleDelegate2 delegateBike4 = (int param) => Console.WriteLine(param>30?"Speed limit exceeded":"Speed limit not exceeded");
     
     
     

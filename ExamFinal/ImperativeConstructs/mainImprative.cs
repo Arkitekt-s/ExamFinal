@@ -7,6 +7,9 @@ public class mainImprative
     public static void mainImprative1()
     {
         Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("\n" + new string('*', 50) + "Imperative constructs" + new string('*', 50));
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
         Console.WriteLine("\n" + new string('*', 10) + "Type System" + new string('*', 10));
         Console.ResetColor();
         Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -30,13 +33,22 @@ public class mainImprative
         structobj2.x = 20;
         Console.WriteLine($"structobj1.x coppying the value: {structobj1.x}");
         Console.WriteLine($"structobj2.x coppying the value: {structobj2.x}");
+        MyClass classobj3= new MyClass();
+        classobj3.value = 10;
+        MyClass classobj4= classobj3;//copy the refrance
+        classobj4.value = 20;
+        Console.WriteLine($"classobj3.value coppying the reference: {classobj3.value}");
+        Console.WriteLine($"classobj4.value coppying the reference: {classobj4.value}");
+        
         Console.ForegroundColor = ConsoleColor.DarkCyan;
         Console.WriteLine("\n" + new string('*', 10) + "Overloads" + new string('*', 10));
         Console.ResetColor();
         Vector v1 = new Vector(2, 3);
         Vector v2 = new Vector(4, 5);
         Vector sum = v1 + v2;
+        Vector sum2= v1 + v2 + v1;
         Console.WriteLine($"Sum: {sum.X},{sum.Y}");
+        Console.WriteLine($"Sum2: {sum2.X},{sum2.Y}");
         //overload
         Overload l1 = new Overload(300,12.1212);
         Overload l2 = new Overload(10,13.131313);
@@ -50,6 +62,7 @@ public class mainImprative
         Console.ResetColor();
         //assine null to the person
         Person ?p1 = null;
+        
         var p2= new Person();
         var p3= new Person("tim",22,2000.500548m);
         
@@ -65,9 +78,9 @@ public class mainImprative
         //@ direct copy the string and dont need to escape
         //print p3 with string interpolation
         Console.WriteLine($"Name: {p3.Name} Age: {p3.Age} Salary: {p3.Salary:F1}");
-        var myString = @"\\this is my string$$";
+        var myString = @"\\Verbatim string this is my string not skip caracter$$";
         Console.WriteLine(myString);
-        var myString2 = "\\this is my string$$";
+        var myString2 = "\\this is my string skip caracter$$";
         Console.WriteLine(myString2);
         //row string which is used for html and xml and json and sql this is help to write string
         var Xml="""

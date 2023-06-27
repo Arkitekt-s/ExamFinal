@@ -6,9 +6,8 @@
 public interface Iluxery
 
 {
-    public void luxery();
-    public delegate void SimpleDelegate(string param);
-    public delegate void SimpleDelegate2(int param);
+    public void luxery(string message);
+    
     
     
 

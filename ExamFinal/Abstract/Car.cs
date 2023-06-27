@@ -2,6 +2,9 @@
 
 public class Car:Vehicle
 {
+    // Delegate type for the event handlers
+    
+    
     public int wheels=4;
     public int maxSpeed = 500;
     //build in deligate EventHandler
@@ -17,15 +20,15 @@ public class Car:Vehicle
     //use event handler for this deligate
     //event is a notification mecanisem witch is depents on deligate
     //evenent can not creat without deligate
-    public  EventHandler eventHandlerCar = (object sender, EventArgs e) => 
+    public EventHandler eventHandlerCar = (object? sender, EventArgs e) => 
         Console.WriteLine("car is  succesfully run(complieted!!)");
     
     //ProcessCompliet(EventArgs e): This method is responsible for processing the completion of an operation related to
     //the bicycle. It prints a message indicating that the bicycle is on process and invokes the eventHandler event if there are any subscribers.
-    public void OnProcessCompliet( EventArgs e)
+    public void OnProcessCompleted( EventArgs e)
     {
         Console.WriteLine("car is on process");
-        eventHandler?.Invoke(this,  e);
+        eventHandlerCar?.Invoke(this,  e);
         
     }
     
@@ -33,6 +36,6 @@ public class Car:Vehicle
     public void StartProcess()
     {
         Console.WriteLine("Car is starting......");
-        OnProcessCompliet(EventArgs.Empty);
+        OnProcessCompleted(EventArgs.Empty);
     }
 }

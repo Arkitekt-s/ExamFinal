@@ -11,7 +11,9 @@ public class mainMethodLevelStructures
     {
 
 
-
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("\n" + new string('*', 50) + "METHOD LEVEL STRUCTURES" + new string('*', 50));
+        Console.ResetColor();
         Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.WriteLine("\n" + new string('*', 10) + "out,ref,in" + new string('*', 10));
         Console.ResetColor();
@@ -58,33 +60,61 @@ public class mainMethodLevelStructures
         
         
         //[optional] is a keyword that we can use to make a paramiter optional
-         void MyMethod(int x, int y = 10)
+         void NamedValue(string s1, string s2, string s3)
         {
-            Console.WriteLine("x is: " + x);
-            Console.WriteLine("y is: " + y);
+            Console.WriteLine($"{s1},{s2},{s3}");
+            
         }
+         NamedValue("soheil", "whats up", "hello");
+         NamedValue("hello", "whats up", "soheil");
+            
+            
 
-         void MyMethod2(int xx, int yy , [Optional] String name)
+         void MyOptionalMethod(string s1, [Optional]int s2)
          {
-             Console.WriteLine("xx is: " + xx);
-             Console.WriteLine("yy is: " + yy);
-             Console.WriteLine("name is: " + name);
+             Console.WriteLine($"{s1},{s2+10}");
          }
-         
-             
+            MyOptionalMethod("soheil");
+            MyOptionalMethod("soheil", 10);
+            
+            //defult value
+            void MyDefultMethod(string s1, int s2 = 10)
+            {
+                Console.WriteLine($"{s1},{s2+10}");
+            }
+            MyDefultMethod("soheil");
 
 
-        
-        
-        
-        
-         Console.ForegroundColor = ConsoleColor.DarkRed;
+
+
+
+
+
+
+
+
+            Console.ForegroundColor = ConsoleColor.DarkRed;
          Console.WriteLine("\n" + new string('*', 10) + "THIS IS TUPLES" + new string('*', 10));
          Console.ResetColor();
+         
+           var tupleCustomClass=(Name:"soheil",Age:20,IsAdult:true);
+           var (name, age, isAdult) = tupleCustomClass;
+                Console.WriteLine("Name is: "+name);
+                Console.WriteLine("Age is: "+age);
+                Console.WriteLine("IsAdult is: "+isAdult);
+                
+            Console.WriteLine("Name is: "+tupleCustomClass.Name.GetType());
+            Console.WriteLine("Age is: "+tupleCustomClass.Age.GetType());
+            Console.WriteLine("IsAdult is: "+tupleCustomClass.IsAdult.GetType());
+            //different why of creat tupels
+            var person = Tuple.Create("John", 25);
+            var point = new Tuple<int, int>(10, 20);
+
        
 
         //a decounstructer is a method that takes a tuple and breaks it into its parts and assign them to variables 
         (string message, bool isValid) = ValidateAddress("123 stran");
+        Console.WriteLine($"Message: {message}, Valid: {isValid}");
         if (isValid)
         {
             Console.WriteLine($"Your validated address is {message}");
@@ -119,14 +149,29 @@ public class mainMethodLevelStructures
         var assembly = Assembly.GetExecutingAssembly().GetTypes()
             . Where(t => t.GetCustomAttributes<AttributeExample.SampleAttribute>().Any()).ToList();
         Console.WriteLine("NAME OF THE ASSEMBLY: " + assembly[0].Name);
+        //reflation to get the attribute of method of assembly class
+        var method = assembly[0].GetMethods().Where
+            (t => t.GetCustomAttributes<AttributeExample.SampleAttribute>().Any()).ToList();
+        Console.WriteLine("NAME OF THE METHOD: " + method[0].Name);
+        //get attribute of the class
+        var attribute = method[0].GetCustomAttributes<AttributeExample.SampleAttribute>().ToList();
+        Console.WriteLine("NAME OF THE ATTRIBUTE: " + attribute[0].Name);
+        Console.WriteLine("ID OF THE ATTRIBUTE: " + attribute[0].Id);
+        Console.WriteLine("AGE OF THE ATTRIBUTE: " + attribute[0].Age);
+        Console.WriteLine("Email OF THE ATTRIBUTE: " + attribute[0].Email);
         
+        
+
+
+
+
         AttributeExample.SampleAttribute sampleAttribute1 = 
             new AttributeExample.SampleAttribute(1, 80, "M", "Student@gmail.com");
-        
         var context = new ValidationContext(sampleAttribute1);
         var results = new List<ValidationResult>();
+        
         bool ok = Validator.TryValidateObject(sampleAttribute1, context, results, true);
-        Console.WriteLine("Dave validion is : " + ok);
+        Console.WriteLine("Validation is : " + ok);
         
         
         
@@ -156,9 +201,9 @@ public class mainMethodLevelStructures
         {
             Console.WriteLine("Error: Enter only number please " + e.Message);
         }*/
-        catch (DivideByZeroException e)
+        catch (DivideByZeroException e) when (e.Message.Contains("cannot divide by zero"))
         {
-            Console.WriteLine("Error: Cannot divide by zero " + e.Message);
+            Console.WriteLine("Error: Cannot divide by zero " );
         }
         catch (FormatException e)
         {

@@ -6,22 +6,37 @@ public class mainOop
     {
         
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("\n" + new string('*', 10) + "Classes and Properties" + new string('*', 10));
+        Console.WriteLine("\n" + new string('*', 50) + "Classes and Properties" + new string('*', 50));
         Console.ResetColor();
         //oopin c#
         //class the refrance of this object pass a round in memory
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\n" + new string('*', 10) + "constructor with parameters" + new string('*', 10));
+        Console.ResetColor();
         PersonClass person = new PersonClass("soheil", 30);
+        person.DisplayInfo();
         PersonClass person2 = new PersonClass("Anja", 30);
-        Console.WriteLine(person.GetInfo() );
-        Console.WriteLine(person2.GetInfo() );
+        person2.DisplayInfo();
         PersonClass.Walking();
-        Console.WriteLine(PersonClass.NumberofPeople);
+        Console.WriteLine($"Number of people is {PersonClass.NumberofPeople}");
         //object initializer we dont need constructorif i dont have any constructor
-        PersonClass person7 = new PersonClass
-        {
-            Name = "emty name soheil",
-        };
-        Console.WriteLine(person7.Name);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\n" + new string('*', 10) + "Empty Constructor/Default value" + new string('*', 10));
+        Console.ResetColor();
+        
+        
+        PersonClass person7 = new PersonClass();
+        person7.DisplayInfo();
+        Console.WriteLine($"Number of people is {PersonClass.NumberofPeople}");
+        
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\n" + new string('*', 10) + "Constructor Chaining" + new string('*', 10));
+        Console.ResetColor();
+        
+        
+        PersonClass person8 = new PersonClass("Alice");
+        person8.DisplayInfo();
+        Console.WriteLine($"Number of people is {PersonClass.NumberofPeople}");
         
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("\n" + new string('*', 10) + "Struct(ValueType)" + new string('*', 10));
@@ -32,7 +47,7 @@ public class mainOop
         
         
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("\n" + new string('*', 10) + "Record(Immutable data)" + new string('*', 10));
+        Console.WriteLine("\n" + new string('*', 10) + "Record(Immutable data)-readonly" + new string('*', 10));
         Console.ResetColor();
         
         PersonRecord person4 = new PersonRecord("soheilrecord", 89);
@@ -43,6 +58,10 @@ public class mainOop
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("\n" + new string('*', 10) + "Inheritance" + new string('*', 10));
         Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\n" + new string('*', 10) + "Constructor chaining-base_keyword" + new string('*', 10));
+        Console.ResetColor();
+        
         //inheritance
         Ufo ufo1 = new Ufo("z489UFO", 40, "Mars");
         Console.WriteLine(ufo1.GetInfo());
@@ -51,7 +70,7 @@ public class mainOop
         
         ufo1.DepartmentApducted();
         PersonClass ali4 = ufo1[4];
-        Console.WriteLine(ali4.GetInfo());
+        Console.WriteLine(ali4.Name);
         
         
         Console.ForegroundColor = ConsoleColor.Green;
@@ -66,9 +85,12 @@ public class mainOop
         //var vs dynamic
         //var is static type and dynamic is dynamic type
         //var is compile time and dynamic is runtime
-        var myVar = 10;
-        Console.WriteLine("var is static type and early binding : value=" + myVar);
+        var myVar = "soheil";
+        int length = myVar.Length;
+        Console.WriteLine("var is static type and early binding compile time error: myVar lenght=" + length);
+
         dynamic myDynamic = "soheil";
-        Console.WriteLine("dynamic is dynamic type and late binding : value=" + myDynamic);
+        //string length2 = myDynamic.Length;
+        Console.WriteLine("dynamic is dynamic type and late binding run time error: myDynamic=" + myDynamic);
     }
 }

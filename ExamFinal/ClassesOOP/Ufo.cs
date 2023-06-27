@@ -1,6 +1,6 @@
 ﻿namespace ExamFinal;
 
-public class Ufo : PersonClass
+sealed class Ufo : PersonClass
 {
     public string Planet { get; set; }
 

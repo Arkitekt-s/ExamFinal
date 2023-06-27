@@ -39,7 +39,7 @@ public class AttributeExample
     {
         public int MyProperty { get; set; }
         
-        [SampleAttribute( 2,   18, "MyMethodSoheil", "2123@11.com")]
+        [SampleAttribute( 2,   28, "MyMethodSoheil", "2123@11.com")]
         public void MyMethod()
         {
             Console.WriteLine("My Method");

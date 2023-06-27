@@ -2,5 +2,5 @@
 
 public interface Iluxery2
 {
-    public void luxery2();
+    public void luxery2(string message);
 }

@@ -7,6 +7,10 @@ public class mainArrys
 {
     public static void mainArry1()
     {
+       
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine("\n" + new string('*', 50) + " Collections & Generics" + new string('*', 50));
+        Console.ResetColor();
         Console.ForegroundColor = ConsoleColor.DarkYellow;
         Console.WriteLine("\n" + new string('*', 10) + "Arrays" + new string('*', 10));
         Console.ResetColor();
@@ -129,18 +133,21 @@ public class mainArrys
         //print a s a list
         portion.ToList().ForEach(s=>Console.WriteLine("range: "+s));
         //span is change the orginal array lightweight and efficient
+        
         Console.ForegroundColor = ConsoleColor.DarkYellow;
         Console.WriteLine("\n" + new string('*', 10) + "Span" + new string('*', 10));
         Console.ResetColor();
 
-        Span<int> span = IndexArry[2..4];
+        Span<int> span = IndexArry[0..5];
         span[0]=1000;
+        span[1]=2000;
         foreach (var num in span)
         {
-            Console.WriteLine("span is Value types good with performance and change exsisting array: "+num);
+            Console.WriteLine("span: "+num);
         }
+        
         Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine("\n" + new string('*', 10) + "Indexers" + new string('*', 10));
+        Console.WriteLine("\n" + new string('*', 10) + "Object Indexers" + new string('*', 10));
         Console.ResetColor();
         //indexers
         var tempRecord = new TempRecord();
@@ -159,9 +166,9 @@ public class mainArrys
          Console.WriteLine("\n" + new string('*', 10) + "Generic" + new string('*', 10));
          Console.ResetColor();
          //generic method so accept all type of array
-            static void displayElementT<Thing>(Thing[]array)
+            static void displayElementT<T>(T[]array)
             {
-                foreach (Thing item in array)
+                foreach (T item in array)
                 {
                     Console.WriteLine(item+" ");
                 }
@@ -169,13 +176,7 @@ public class mainArrys
             }
             displayElementT(stringArray);
             displayElementT(objectArray);
-            //array in c sharp is  called covariant 
-            string[] s = new string[10];
-            object[] o = s;
-            o[0]="soheil";
-            //this attempt is ok in compiles fine and fail in runntime
-            //o[1]=10;
-            Console.WriteLine(s[0]);
+            
             
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("\n" + new string('*', 10) + "Covariance &invariance" + new string('*', 10));
@@ -202,24 +203,10 @@ public class mainArrys
             
            //malechild=parent; //contravariant where parent is a child its not allowed
             MaleChild[] objectMaleChildrenArray={new MaleChild("jack","usa",12),new MaleChild("alex","usa",22)};
-            //give me complie time error
-            //Parent[] objectParentArray = objectMaleChildrenArray;
-            //objectParentArray[0] = new FemailChild("anja","uk",33);
-            
-            //read as a list
-            //objectParentArray.ToList().ForEach(s=>Console.WriteLine(s));
-            
-            // convartion, but not safe
-            //safe approach IEnumerable<T> provides only read-only access
             IEnumerable<Parent> objectParentArray = objectMaleChildrenArray;
             
+            Parent[] objectParentArray2={new Parent("soheil"),new Parent("ANJA")};
+            //IEnumerable<MaleChild> objectMaleChildrenArray2 = objectParentArray2;
             
-            
-             
-            //runtime error give to me 
-            //objectParentArray[0] = new FemailChild("anja","uk",33);
-            
-            //read as a list
-            //objectParentArray.ToList().ForEach(s=>Console.WriteLine(s));
     }
 }

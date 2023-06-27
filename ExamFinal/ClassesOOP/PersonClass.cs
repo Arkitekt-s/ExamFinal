@@ -1,6 +1,6 @@
 ﻿namespace ExamFinal;
 //refrence type is a class
-public class PersonClass
+public partial class PersonClass
 //seald class can not be in haritantas a parents class but  can be a child class
 //sealed public class PersonClass
 //partial class can be in different files and can have two or more partial class
@@ -26,6 +26,20 @@ public class PersonClass
     public PersonClass()
     {
         NumberofPeople++;
+    }
+    //constructor chaining
+    public PersonClass(string name) : this(name, 0)
+    {
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine("Name: " + Name);
+        Console.WriteLine("Age: " + Age);
+    }
+    public virtual string GetInfo()
+    {
+        return $"This PersonClass name is {Name} and age is {Age}";
     }
     
     
@@ -59,10 +73,7 @@ public class PersonClass
     
 
     // tostring method
-    public virtual string GetInfo()
-    {
-        return $"This PersonClass name is {Name} and age is {Age}";
-    }
+    
     //tostring method
     public override string ToString()
     {
